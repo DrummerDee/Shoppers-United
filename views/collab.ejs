@@ -4,34 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>collab</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos</h1>
+    <h1>Todos shared</h1>
+    <a href="/todos">Go to home</a>
     <ul>
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
             </li>
     <% }) %>    
     </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
-
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
+    <h2><%= user.userName %> and <%= collabUser %> Have <%= left %> things left to do.</h2>
     
-    <p>Invite others to access your list with your key: <%= user._id %></p>
-
-    <form action="/todos/collab" method='POST'>
-        <p>To collab on someone's list enter their key</p>
-        <input type="text" placeholder="Enter Key to " name='collabKey'>
+    <form action="/todos/createTodoCollab" method='POST' >
+        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <input type="hidden" name='key' value="<%= key %>">
         <input type="submit">
     </form>
+
+   
 
     <a href="/logout">Logout</a>
 

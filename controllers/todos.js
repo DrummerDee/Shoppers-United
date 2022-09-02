@@ -1,4 +1,5 @@
 const Todo = require('../models/Todo')
+const User = require('../models/User')
 
 module.exports = {
     getTodos: async (req,res)=>{
@@ -51,5 +52,40 @@ module.exports = {
         }catch(err){
             console.log(err)
         }
+    },
+    collab: async (req, res) => {
+    try {
+      const key = req.body.collabKey;
+      const collabUser = await User.find({_id: req.body.collabKey })
+      const todoItems = await Todo.find({ userId: req.body.collabKey });
+      const itemsLeft = await Todo.countDocuments({
+        userId: req.body.collabKey,
+        completed: false,
+      });
+      console.log(collabUser)
+      res.render("collab.ejs", {
+        key: key,
+        todos: todoItems,
+        left: itemsLeft,
+        user: req.user,
+        collabUser: collabUser[0].userName,
+      });
+    } catch (err) {
+      console.log(err);
     }
+  },
+  createTodoCollab: async (req, res) => {
+    console.log(req);
+    try {
+      await Todo.create({
+        todo: req.body.todoItem,
+        completed: false,
+        userId: req.body.key,
+      });
+      console.log("Collab todo has been added!");
+      res.redirect("/todos");
+    } catch (err) {
+      console.log(err);
+    }
+  },
 }    
