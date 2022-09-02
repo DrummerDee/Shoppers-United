@@ -17,4 +17,8 @@ router.post("/collab", todosController.collab);
 
 router.get("/collab", todosController.collab);
 
+router.put('/markShared', todosController.markShared);
+
+router.put('/markUnshared', todosController.markUnshared);
+
 module.exports = router;
