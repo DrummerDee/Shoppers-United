@@ -17,6 +17,4 @@ router.post("/collab", todosController.collab);
 
 router.get("/collab", todosController.collab);
 
-router.post("/createTodoCollab", todosController.createTodoCollab);
-
 module.exports = router;
