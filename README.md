@@ -51,3 +51,7 @@ Have fun testing and improving it! 😎
 4. create groups controller includes methods: getGroups, createGroup, showCreateGroup
 5. create createGroup.ejs to handel create new group and get the group name
 6. create groups.ejs view to list the groups list
+7. when click on each group it take us to the group todos items
+8. the groups filters by the user if he/she inside the group users array
+9. each user can add a user to a specific group by adding their userId
+10. user will now list all groups its id in the users array

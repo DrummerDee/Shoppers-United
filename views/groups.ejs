@@ -22,9 +22,9 @@
                 <% } %>
                     <% groups.forEach( el=> { %>
                         <li class='' data-id='<%=el._id%>'>
-                            <span>
+                            <a href=<%=`/todos/${el._id}`%>>
                                 <%= el.name %>
-                            </span>
+                            </a>
 
                             <ul>
                                 <% for(let i=0; i < el.users.length; i++ ){ %>
