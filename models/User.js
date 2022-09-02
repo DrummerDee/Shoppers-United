@@ -4,6 +4,10 @@ const mongoose = require('mongoose')
 const UserSchema = new mongoose.Schema({
   userName: { type: String, unique: true },
   email: { type: String, unique: true },
+  role: { type: String, default: 'self', enum: ['self', 'spouse','friend'] },
+  //access token for a base for the shareable link. 
+  accessToken:{ type: String },
+  permission
   password: String
 })
 
