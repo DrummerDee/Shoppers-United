@@ -92,4 +92,18 @@ module.exports = {
       console.log(err);
     }
   },
+  createTodoCollab: async (req, res) => {
+    console.log(req);
+    try {
+      await Todo.create({
+        todo: req.body.todoItem,
+        completed: false,
+        userId: req.body.key,
+      });
+      console.log("Collab todo has been added!");
+      res.redirect("/todos");
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };
