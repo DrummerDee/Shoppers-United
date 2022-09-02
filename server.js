@@ -1,19 +1,31 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const passport = require('passport')
-const session = require('express-session')
-const MongoStore = require('connect-mongo')(session)
-const flash = require('express-flash')
-const logger = require('morgan')
-const connectDB = require('./config/database')
-const mainRoutes = require('./routes/main')
-const todoRoutes = require('./routes/todos')
+const passport = require('passport');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const flash = require('express-flash');
+const logger = require('morgan');
+const connectDB = require('./config/database');
+const mainRoutes = require('./routes/main');
+const todoRoutes = require('./routes/todos');
+const MongoClient = require('mongodb').MongoClient;
+const bodyParser= require('body-parser');
 
 require('dotenv').config({path: './config/.env'})
 
-// Passport config
 require('./config/passport')(passport)
+
+let db,
+  dbConnectionStr = process.env.DB_STRING,
+  dbName = 'shoppers-united'
+
+MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
+  .then(client => {
+    console.log(`Connected to ${dbName} Database`)
+    const db = client.db(dbName)
+  })
+  .catch(error => console.error(error))
 
 connectDB()
 
@@ -22,6 +34,8 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(logger('dev'))
+app.use(bodyParser.urlencoded({ extended: true }))
+
 // Sessions
 app.use(
     session({
