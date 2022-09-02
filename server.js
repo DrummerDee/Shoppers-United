@@ -9,8 +9,11 @@ const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const todoRoutes = require('./routes/todos')
+const MongoClient = require('mongodb').MongoClient
+const dotenv = require('dotenv')
+const bodyParser = require('body-parser')
 
-require('dotenv').config({path: './config/.env'})
+require('dotenv').config({path: './config/.env'},{ debug: process.env.DEBUG })
 
 // Passport config
 require('./config/passport')(passport)
@@ -22,6 +25,7 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(logger('dev'))
+app.use(bodyParser.urlencoded({ extended: true }))
 // Sessions
 app.use(
     session({
@@ -44,3 +48,13 @@ app.use('/todos', todoRoutes)
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')
 })    
+
+const dbName = 'shoppers-united'
+
+MongoClient.connect(DB_STRING, { useUnifiedTopology: true }, { useNewUrlParser: true }, (err, client) => {
+  if (err) return console.error(err);
+  console.log('Connected to Database');
+
+  const db = client.db('shoppers-united');
+  const itemsCollection = db.collection('items');
+})
