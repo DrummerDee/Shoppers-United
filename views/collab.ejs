@@ -19,9 +19,10 @@
     </ul>
 
     <h2><%= user.userName %> and <%= collabUser %> Have <%= left %> things left to do.</h2>
-
-    <form action="/todos/createTodo" method='POST'>
+    
+    <form action="/todos/createTodoCollab" method='POST' >
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <input type="hidden" name='key' value="<%= key %>">
         <input type="submit">
     </form>
 
