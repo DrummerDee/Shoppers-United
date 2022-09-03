@@ -13,4 +13,13 @@ router.put('/markIncomplete', todosController.markIncomplete)
 
 router.delete('/deleteTodo', todosController.deleteTodo)
 
-module.exports = router
+router.post("/collab", todosController.collab);
+
+router.get("/collab", todosController.collab);
+
+router.put('/markShared', todosController.markShared);
+
+router.put('/markUnshared', todosController.markUnshared);
+
+module.exports = router;
+
