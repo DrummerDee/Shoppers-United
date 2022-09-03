@@ -1,3 +1,55 @@
+/* prepare for card design for the group list*/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+    background: lighten(black, 12);
+    color: white;
+    font-family: 'Lato';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+.card__ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.card{
+    float: left;
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin: 0 30px 30px 0;
+    background: #5271C2;
+    border-radius: 20px;
+}
+
+.card__title{
+    font-size: 2rem;
+}
+.card__num{
+    color: yellow;
+    font-size: 1.5rem;
+}
+
+/* prepare for card design for the group list*/
+
+
+
 h1{
     color: red;
 }

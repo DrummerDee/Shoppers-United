@@ -11,36 +11,29 @@
 
     <body>
         <h1>Groups</h1>
-        <!-- <h3>
-            <%= user %>
-        </h3> -->
+
         <a href="/todos/createGroup">Create group</a>
-        <ul>
+        <ul class="card__ul">
             <% if (groups.length===0) { %>
                 <h3>No groups yet</h3>
                 <a href="/todos/createGroup">Create group</a>
-                <% } %>
+                <% } else { %>
                     <% groups.forEach( el=> { %>
-                        <li class='' data-id='<%=el._id%>'>
-                            <a href=<%=`/todos/${el._id}`%>>
-                                <%= el.name %>
-                            </a>
-
-                            <ul>
-                                <% for(let i=0; i < el.users.length; i++ ){ %>
-                                    <br>
-                                    <li>
-                                        <%= el.users[i].userName %>
-                                            <%= el.users[i].email %>
-                                                <% } %>
-
-
-                                    </li>
-                            </ul>
-
-
-                        </li>
+                        <a href=<%=`/todos/${el._id}`%>>
+                            <li class="card" data-id='<%=el._id%>'>
+                                <div class="">
+                                    <p class="card__title"><span>
+                                            <%= el.name %>
+                                        </span></p>
+                                    <p class="card__num">Todos: 9</p>
+                                    <p class="card__num">Members: <%= el.users.length %>
+                                    </p>
+                                </div>
+                            </li>
+                        </a>
                         <% }) %>
+                            <%}%>
+
         </ul>
 
 

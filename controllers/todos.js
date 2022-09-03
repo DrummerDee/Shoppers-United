@@ -46,7 +46,7 @@ module.exports = {
         groupId: groupId,
       });
       console.log("Todo has been added!");
-      res.redirect("/todos");
+      res.redirect("/todos/" + groupId);
     } catch (err) {
       console.log(err);
     }
