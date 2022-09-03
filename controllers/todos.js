@@ -43,17 +43,41 @@ module.exports = {
             console.log(err)
         }
     },
-    deleteTodo: async (req, res)=>{
-        console.log(req.body.todoIdFromJSFile)
-        try{
-            await Todo.findOneAndDelete({_id:req.body.todoIdFromJSFile})
-            console.log('Deleted Todo')
-            res.json('Deleted It')
-        }catch(err){
-            console.log(err)
-        }
-    },
-    collab: async (req, res) => {
+  markShared: async (req, res)=>{
+    try{
+        await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
+            shared: true
+        })
+        console.log('Task Shared')
+        res.json('Task Shared')
+    }catch(err){
+        console.log(err)
+        res.render('error/404.ejs')
+    }
+},
+markUnshared: async (req, res)=>{
+    try{
+        await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
+            shared: false
+        })
+        console.log('Task unshared')
+        res.json('Task unshared')
+    }catch(err){
+        console.log(err)
+        res.render('error/404.ejs')
+    }
+},
+  deleteTodo: async (req, res) => {
+    console.log(req.body.todoIdFromJSFile);
+    try {
+      await Todo.findOneAndDelete({ _id: req.body.todoIdFromJSFile });
+      console.log("Deleted Todo");
+      res.json("Deleted It");
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  collab: async (req, res) => {
     try {
       const key = req.body.collabKey;
       const collabUser = await User.find({_id: req.body.collabKey })
