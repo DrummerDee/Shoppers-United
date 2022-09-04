@@ -13,14 +13,18 @@ const TodoSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  shared:{
-    type:Boolean,
-    required: true
+  groupId: {
+    type: String,
+    required: true,
   },
-  sharedWith:{
-    type:String,
-    required:false
-  }
+  // shared:{
+  //   type:Boolean,
+  //   required: true
+  // },
+  // sharedWith:{
+  //   type:String,
+  //   required:false
+  // }
 })
 
 module.exports = mongoose.model('Todo', TodoSchema)
