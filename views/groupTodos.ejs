@@ -28,6 +28,25 @@
 
         <section class='todo__Lists'>
             <div class="personal">
+
+                <!-- group settings -->
+                <div class="menu-container">
+                    <div class="dropdown" tabindex="1">
+                        <i class="db2" tabindex="1"></i>
+                        <a class="dropbtn"><i class="fa-solid fa-gear"></i> <i class="fa-solid fa-caret-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href=<%=`/groups/addUser/${group._id}` %>>Add Member</a>
+                            <a href="#">Delete Member</a>
+                            <a href="#">Delete Group</a>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- group settings -->
+
+                <!-- <div style="text-align: right; padding: 0 20px 0 0;">
+                    <a href=<%=`/group-settings/${group._id}`%><i class="fa-solid fa-gear"></i></a>
+                </div> -->
                 <!-- <h2>Personal tasks</h2> -->
                 <form action=<%=`/groups/createTodo/${group._id}`%> method='POST'>
                     <input type=" text" placeholder="Enter Todo Item" name='todoItem'>
@@ -76,11 +95,11 @@
 
 
         <a href="/logout">Logout</a>
-        <footer>
+        <!-- <footer>
             <div>
                 <a href=<%=`/group-settings/${group._id}`%><i class="fa-solid fa-gear"></i></a>
             </div>
-        </footer>
+        </footer> -->
         <script src="/js/main.js"></script>
     </body>
 
