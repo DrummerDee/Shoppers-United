@@ -10,6 +10,7 @@ const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const todoRoutes = require('./routes/todos')
 
+
 require('dotenv').config({path: './config/.env'})
 
 // Passport config
