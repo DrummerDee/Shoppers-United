@@ -54,11 +54,14 @@ module.exports = {
   },
   markComplete: async (req, res) => {
     console.log("*******", req.body.todoIdFromJSFile);
+    console.log("*******", req.user);
+
     try {
       await Todo.findOneAndUpdate(
         { _id: req.body.todoIdFromJSFile },
         {
           completed: true,
+          doneBy: req.user.userName,
         }
       );
       console.log("Marked Complete");

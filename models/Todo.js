@@ -17,6 +17,9 @@ const TodoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  doneBy: {
+    type: String,
+  },
   // shared:{
   //   type:Boolean,
   //   required: true
