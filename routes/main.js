@@ -15,6 +15,7 @@ router.post("/signup", authController.postSignup);
 // router.get("/forgot-password", forgotController.getForgot);
 // router.post("/forgot-password", forgotPostController.postForgot);
 
+
 // router.get('/reset-password:id/:token', resetController.getReset);
 
 // app.post('/reset-password', (req,res,next) => {
