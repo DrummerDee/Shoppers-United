@@ -83,8 +83,12 @@ input:focus{
     text-decoration: none;
     font-weight: 600;
 }
+/* icons for the eyes */
 .eye{
     position:relative;
     top: -3rem;
     margin-right: -10rem;
 }
+
+
+
