@@ -9,8 +9,6 @@ router.get('/', homeController.getIndex)
 router.get('/login', authController.getLogin)
 router.post('/login', authController.postLogin)
 router.get('/logout', authController.logout)
-router.get('/signup', authController.getSignup)
-router.post('/signup', authController.postSignup)
 router.get('/forgot-password', forgotController.getForgot)
 // app.post('/forgot-password',(req,res,next) => {
 
@@ -23,7 +21,6 @@ router.get('/forgot-password', forgotController.getForgot)
 // app.post('/reset-password', (req,res,next) => {
 
 // });
-
 
 
 module.exports = router

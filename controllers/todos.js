@@ -1,4 +1,5 @@
 const Todo = require('../models/Todo')
+const User = require('../models/User')
 
 module.exports = {
     getTodos: async (req,res)=>{
@@ -13,7 +14,7 @@ module.exports = {
     },
     createTodo: async (req, res)=>{
         try{
-            await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id})
+            await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id, shared:false,})
             console.log('Todo has been added!')
             res.redirect('/todos')
         }catch(err){
@@ -95,6 +96,20 @@ markUnshared: async (req, res)=>{
       });
     } catch (err) {
       console.log(err);
-
     }
-}}
+  },
+  createTodoCollab: async (req, res) => {
+    console.log(req);
+    try {
+      await Todo.create({
+        todo: req.body.todoItem,
+        completed: false,
+        userId: req.body.key,
+      });
+      console.log("Collab todo has been added!");
+      res.redirect("/todos");
+    } catch (err) {
+      console.log(err);
+    }
+  },
+}    

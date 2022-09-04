@@ -18,8 +18,9 @@
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <h1> Welcome Back Shopper </h1>
+    
 <main>
+    <h1> Welcome Back Shopper </h1>
     <form action="/login" method="POST" autocomplete="off">
         <label> Email </label>
         <input type="email" name="email" placeholder="Enter Email"
@@ -27,10 +28,9 @@
         <label> Password </label>
         <input type="password" name="password" placeholder="Enter Password">
         <div id="remember">
-            <a href ='/forgot'> Forgot Password </a>
-        </div> 
+            <a href = '/forgotPassword'> Forgot Password </a>
+        </div>
         <input type="submit" value="Sign In" id="submit">
-    </form>
     <div class="text"> 
         <h4> New Shopper? <a href="/signup"> Sign Up </a>
 </main>
