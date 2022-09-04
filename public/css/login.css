@@ -52,7 +52,7 @@ input{
     font-size: 1.3rem;
     outline: none;
     border: none;
-    border-bottom: 0.2rem solid black;
+    border-bottom: 0.2rem solid white;
     background-color: transparent;
     width: 70%;
 }
