@@ -26,7 +26,7 @@
                 <% todos.forEach( el=> { %>
                     <li class='todoItem' data-id='<%=el._id%>'>
                         <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
-                        <span class=' share <%= el.shared === true ? ' unshared' : 'share' %>'>Share</span>
+                        <span class=' share <%= el.shared === true ? ' unshared' : 'share' %>'>'<%= el.shared === true ' unshare' : 'share' %>'</span>
                         <span class='del'> Delete </span>
 
                     </li>
