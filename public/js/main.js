@@ -109,7 +109,9 @@ async function markUnshared(){
   }
 }
 // this will send notification to the user if the invitation is successfull or not 
-collabTn.addEventListener('click',sanityCheck);
+
+
 const sanityCheck = () => {
   console.log('clicked')
 }
+document.getElementById('forgotPwdBtn').addEventListener('click',sanityCheck);
