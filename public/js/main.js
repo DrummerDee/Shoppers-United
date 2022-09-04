@@ -1,11 +1,12 @@
 const deleteBtn = document.querySelectorAll(".del");
-const todoItem = document.querySelectorAll("span.not");
-const todoComplete = document.querySelectorAll("span.completed");
+// select the done button after the todo item
+const todoItem = document.querySelectorAll("span.not + span.done");
+// select the repeat button after the todo item
+const todoComplete = document.querySelectorAll("span.completed + span.repeat");
 const canShare = document.querySelectorAll("span.unshared");
 const shareBtn = document.querySelectorAll(".share");
 const collabTn = document.getElementById("collab__key");
 
-console.log("***", todoItem);
 Array.from(deleteBtn).forEach((el) => {
   el.addEventListener("click", deleteTodo);
 });
@@ -43,9 +44,8 @@ async function deleteTodo() {
 
 async function markComplete() {
   const todoId = this.parentNode.dataset.id;
-  console.log(todoId);
   try {
-    const response = await fetch("groups/markComplete", {
+    const response = await fetch("/groups/markComplete", {
       method: "put",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
@@ -62,7 +62,7 @@ async function markComplete() {
 async function markIncomplete() {
   const todoId = this.parentNode.dataset.id;
   try {
-    const response = await fetch("todos/markIncomplete", {
+    const response = await fetch("/groups/markIncomplete", {
       method: "put",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
