@@ -1,8 +1,8 @@
-const express = require('express')
-const router = express.Router()
-const todosController = require('../controllers/todos')
-const groupsController = require("../controllers/groups"); 
-const { ensureAuth } = require('../middleware/auth')
+const express = require("express");
+const router = express.Router();
+const todosController = require("../controllers/todos");
+const groupsController = require("../controllers/groups");
+const { ensureAuth } = require("../middleware/auth");
 
 // router.get('/', ensureAuth, todosController.getTodos)
 
@@ -49,7 +49,6 @@ router.put("/markIncomplete", todosController.markIncomplete);
 
 router.delete("/deleteTodo", todosController.deleteTodo);
 
-//get page for group settings 
+//get page for group settings
 // router.get("/group-settings/:groupId",ensureAuth,groupsController.showGroupSettings);
 module.exports = router;
-

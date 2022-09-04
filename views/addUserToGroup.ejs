@@ -17,7 +17,7 @@
             Group: <%= groupId %>
         </h3>
 
-        <form action=<%=`/todos/addUserToGroup/${groupId}`%> method='POST'>
+        <form action=<%=`/groups/addUserToGroup/${groupId}`%> method='POST'>
             <input type="text" placeholder="Enter User ID" name='userToAdd'>
             <input type="submit">
         </form>

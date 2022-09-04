@@ -1,4 +1,4 @@
-const Todo = require('../models/Todo');
+const Todo = require("../models/Todo");
 // const User = require('../models/User');
 const Group = require("../models/Group");
 
@@ -47,7 +47,7 @@ module.exports = {
         groupId: groupId,
       });
       console.log("Todo has been added!");
-      res.redirect("/todos/" + groupId);
+      res.redirect("/groups/" + groupId);
     } catch (err) {
       console.log(err);
     }
@@ -202,4 +202,4 @@ module.exports = {
 //       console.log(err);
 //     }
 //   },
-// }    
+// }
