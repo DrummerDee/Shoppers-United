@@ -69,16 +69,8 @@
             </div>
         </section>
 
-        <%= groupTodos %>
 
-            <!-- <div class="form"> -->
-            <!-- <h4>
-            <%= group.name %> has <%= groupTodos.filter(t=>t.completed===false).length %> thing<%= groupTodos.filter(t=>
-                        t.completed===false).length.length> 1
-                        ? 's': '' %> left to do.
-        </h4> -->
-
-            <!-- <form action="/todos/createTodo" method='POST'>
+        <!-- <form action="/todos/createTodo" method='POST'>
             <input type="text" placeholder="Enter Todo Item" name='todoItem'>
             <input type="submit">
         </form>
@@ -97,13 +89,13 @@
         </form> -->
 
 
-            <a href="/logout">Logout</a>
-            <!-- <footer>
+        <a href="/logout">Logout</a>
+        <!-- <footer>
             <div>
                 <a href=<%=`/group-settings/${group._id}`%><i class="fa-solid fa-gear"></i></a>
             </div>
         </footer> -->
-            <script src="/js/main.js"></script>
+        <script src="/js/main.js"></script>
     </body>
 
 </html>
