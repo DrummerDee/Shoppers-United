@@ -22,28 +22,26 @@ main{
     border-radius: 0.3rem;
     width: 60%;
     margin: 1rem auto;
-    height: 65vh;
+    height: 70vh;
     color: white;
     margin-top: 5rem;
 }
-
 label:first-child{
-    margin-top: 3rem;
+    margin-top: 1.5rem;
 }
 label,input{
     display: flex;
     flex-direction: column;
-    margin:0.3rem auto;
-    margin-top: 1rem;
     align-content: center;
     justify-content: center;
+    margin: 0.3rem auto;
 
 }
-label::placeholder,
 input::placeholder{
     text-align: center;
     font-size: 1.3rem;
     margin: 1rem auto;
+    color: rgba(255, 255, 255, 0.853);
 }
 label{
     font-size: 2rem;
@@ -52,7 +50,7 @@ input{
     font-size: 1.3rem;
     outline: none;
     border: none;
-    border-bottom: 0.2rem solid black;
+    border-bottom: 0.2rem solid white;
     background-color: transparent;
     width: 70%;
 }
@@ -60,7 +58,7 @@ input:focus{
     border-bottom:#EA8F07 0.2rem solid;
 }
 
-#submit{
+#sign__in{
     background-color:#EA8F07;
     color: white;
     padding: 0.5rem 1.5rem 0.5rem 1.5rem;
@@ -72,20 +70,20 @@ input:focus{
     padding-left: 5.5rem;
 }
 
-#submit:hover{
+#sign__in:hover{
     cursor:pointer;
     background-color:#ca7b04;
     transition: ease all 0.3s;
 }
-h4{
-    font-size: 1.3rem;
-}
-.text{
-    margin: 1.5rem auto;
-    text-decoration: none;
-}
+
+
  a {
     color:#EA8F07;
     text-decoration: none;
     font-weight: 600;
+}
+.eye{
+    position:relative;
+    top: -3rem;
+    margin-right: -10rem;
 }
