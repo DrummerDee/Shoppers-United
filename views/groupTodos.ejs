@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/bda3ab8878.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/todo.css">
-    <title>Group Todos --Shoppers United</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/bda3ab8878.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/todo.css">
+        <title>Group Todos --Shoppers United</title>
+    </head>
 
-<body>
-    <header>
-        <div class="header">
-            <a href='/' class="home"> Shoppers United </a>
-            <h5>
-                <%= user.userName %><a href='/user'><i class="user fa-solid fa-user"></i></a>
-            </h5>
-        </div>
-        <h1>
-            <%= group.name %>'s Lists
-        </h1>
-    </header>
+    <body>
+        <header>
+            <div class="header">
+                <a href='/' class="home"> Shoppers United </a>
+                <h5>
+                    <%= user.userName %><a href='/user'><i class="user fa-solid fa-user"></i></a>
+                </h5>
+            </div>
+            <h1>
+                <%= group.name %>'s Lists
+            </h1>
+        </header>
 
-    <section class='todo__Lists'>
-        <div class="personal">
-            <h2>Personal tasks</h2>
-            <ul>
-                <% groupTodos.forEach( el=> { %>
-                    <li class='todoItem' data-id='<%=el._id%>'>
-                        <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
-                        <span class='<%= el.shared === true ? ' unshared' : 'share' %>'>Share</span>
-                        <span class='del'> Delete </span>
+        <section class='todo__Lists'>
+            <div class="personal">
+                <h2>Personal tasks</h2>
+                <ul>
+                    <% groupTodos.forEach( el=> { %>
+                        <li class='todoItem' data-id='<%=el._id%>'>
+                            <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
+                            <span class='<%= el.shared === true ? ' unshared' : 'share' %>'>Share</span>
+                            <span class='del'> Delete </span>
 
-                    </li>
-                    <% }) %>
-            </ul>
-        </div>
-    </section>
-    <div class="form">
-        <h2>
-            <%= user.userName %> has things left to do.
-        </h2>
+                        </li>
+                        <% }) %>
+                </ul>
+            </div>
+        </section>
+        <div class="form">
+            <h2>
+                <%= user.userName %> has things left to do.
+            </h2>
 
-        <!-- <form action="/todos/createTodo" method='POST'>
+            <!-- <form action="/todos/createTodo" method='POST'>
             <input type="text" placeholder="Enter Todo Item" name='todoItem'>
             <input type="submit">
         </form>
@@ -62,21 +62,21 @@
         </form> -->
 
 
-        <% groupTodos.forEach(el=> { %>
-            <br>
-            <li data-id='<%=el._id%>'>
-                <%= el.todo %>
-            </li>
-            <% }) %>
+            <% groupTodos.forEach(el=> { %>
+                <br>
+                <li data-id='<%=el._id%>'>
+                    <%= el.todo %>
+                </li>
+                <% }) %>
 
 
-                <a href="/logout">Logout</a>
-                <footer>
-                    <div>
-                        <a href=<%=`/group-settings/${group._id}`%><i class="fa-solid fa-gear"></i></a>
-                    </div>
-                </footer>
-                <script src="js/main.js"></script>
-</body>
+                    <a href="/logout">Logout</a>
+                    <footer>
+                        <div>
+                            <a href=<%=`/group-settings/${group._id}`%><i class="fa-solid fa-gear"></i></a>
+                        </div>
+                    </footer>
+                    <script src="js/main.js"></script>
+    </body>
 
 </html>

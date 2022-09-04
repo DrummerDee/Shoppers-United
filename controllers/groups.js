@@ -26,7 +26,7 @@ module.exports = {
         users: [req.user],
       });
       console.log("group created");
-      res.redirect("/todos");
+      res.redirect("/groups");
     } catch (err) {
       console.log(err);
     }
@@ -51,7 +51,7 @@ module.exports = {
       if (!group[0].users.includes(userToAdd)) {
         group[0].users.push(userToAdd);
         await Group.updateOne({ _id: groupId }, { $set: group[0] });
-        res.redirect("/todos");
+        res.redirect("/groups");
       }
     } catch (err) {
       console.log(err);
