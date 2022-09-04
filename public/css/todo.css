@@ -64,6 +64,17 @@ header > h1{
     list-style-type: none;
     margin: 1rem auto;
   }
+
+  .done{
+      color: white;
+      border: 0.2rem solid #52e40e;
+      padding: 0.2rem 0.6rem 0.2rem 0.6rem;
+      background-color: #52e40e;
+      border-radius: 0.3rem;
+      margin-left: 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+  }
     .del,
     .share{
         color: white;

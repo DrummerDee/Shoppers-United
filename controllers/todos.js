@@ -53,6 +53,7 @@ module.exports = {
     }
   },
   markComplete: async (req, res) => {
+    console.log("*******", req.body.todoIdFromJSFile);
     try {
       await Todo.findOneAndUpdate(
         { _id: req.body.todoIdFromJSFile },

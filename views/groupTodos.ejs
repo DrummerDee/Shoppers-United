@@ -26,16 +26,21 @@
         <section class='todo__Lists'>
             <div class="personal">
                 <h2>Personal tasks</h2>
-                <ul>
-                    <% groupTodos.forEach( el=> { %>
-                        <li class='todoItem' data-id='<%=el._id%>'>
-                            <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
-                            <span class='<%= el.shared === true ? ' unshared' : 'share' %>'>Share</span>
-                            <span class='del'> Delete </span>
-
-                        </li>
-                        <% }) %>
-                </ul>
+                <%= groupTodos %>
+                    <form action=<%=`/groups/createTodo/${group._id}`%> method='POST'>
+                        <input type=" text" placeholder="Enter Todo Item" name='todoItem'>
+                        <input type="submit">
+                    </form>
+                    <ul>
+                        <% groupTodos.forEach( el=> { %>
+                            <li class='todoItem' data-id='<%=el._id%>'>
+                                <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
+                                <span class='done'> Done </span>
+                                <span class='<%= el.shared === true ? ' unshared' : 'share' %>'>Share</span>
+                                <span class='del'> Delete </span>
+                            </li>
+                            <% }) %>
+                    </ul>
             </div>
         </section>
         <div class="form">
@@ -76,7 +81,7 @@
                             <a href=<%=`/group-settings/${group._id}`%><i class="fa-solid fa-gear"></i></a>
                         </div>
                     </footer>
-                    <script src="js/main.js"></script>
+                    <script src="/js/main.js"></script>
     </body>
 
 </html>
