@@ -14,7 +14,7 @@ router.get('/signup', authController.getSignup)
 router.post('/signup', authController.postSignup)
 //signup//
 
-router.get('/forgotPassword', authController.getForgot)
-router.post('/forgotPassword', authController.postForgot)
+// router.get('/forgotPassword', authController.getForgot)
+// router.post('/forgotPassword', authController.postForgot)
 
 module.exports = router
