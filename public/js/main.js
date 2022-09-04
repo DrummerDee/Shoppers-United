@@ -5,6 +5,7 @@ const todoComplete = document.querySelectorAll("span.completed");
 const canShare = document.querySelectorAll('span.unshared');
 const shareBtn= document.querySelectorAll('.share');
 const collabTn = document.getElementById('collab__key');
+const forgotPassword = document.getElementById('forgotPasswordButton');
 
 const forgotPasswordPrompt = document.getElementById('forgotPasswordPrompt');
 
