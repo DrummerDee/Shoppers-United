@@ -16,6 +16,7 @@
                 <h3>No groups yet</h3>
                 <a href="/groups/createGroup">Create group</a>
                 <% } else { %>
+                    <a href="/groups/createGroup">Create group</a>
                     <% groups.forEach( el=> { %>
                         <a href=<%=`/groups/${el._id}`%>>
                             <li class="card" data-id='<%=el._id%>'>

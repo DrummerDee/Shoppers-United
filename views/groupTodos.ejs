@@ -19,13 +19,16 @@
                 </h5>
             </div>
             <h1>
-                <%= group.name %>'s Lists
+                <%= group.name %>'s Lists <span style="color:orangered">(<%= groupTodos.filter(t=>
+                            t.completed===false).length %> left todo<%= groupTodos.filter(t=>
+                                t.completed===false).length> 1
+                                ? 's': '' %>)</span>
             </h1>
         </header>
 
         <section class='todo__Lists'>
             <div class="personal">
-                <h2>Personal tasks</h2>
+                <!-- <h2>Personal tasks</h2> -->
                 <form action=<%=`/groups/createTodo/${group._id}`%> method='POST'>
                     <input type=" text" placeholder="Enter Todo Item" name='todoItem'>
                     <input type="submit">
@@ -36,19 +39,24 @@
                             <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
                             <span class='<%= el.completed === true ? ' repeat' : 'done' %>'><%= el.completed===true
                                     ? 'Repeat' : 'Done' %></span>
-                            <!-- <span class='<%= el.shared === true ? ' unshared' : 'share' %>'>Share</span> -->
+                            <span class='<%= el.shared === true ? ' unshared' : 'share' %>'>Share</span>
                             <span class='del'> Delete </span>
+                            <span class='<%= el.completed === true ? ' done-by' : 'hidden' %>'><%= el.completed===true ?
+                                    `Done by: ${user.userName}` : '' %></span>
                         </li>
                         <% }) %>
                 </ul>
+
             </div>
         </section>
-        <div class="form">
-            <h2>
-                <%= user.userName %> has things left to do.
-            </h2>
+        <!-- <div class="form"> -->
+        <!-- <h4>
+            <%= group.name %> has <%= groupTodos.filter(t=>t.completed===false).length %> thing<%= groupTodos.filter(t=>
+                        t.completed===false).length.length> 1
+                        ? 's': '' %> left to do.
+        </h4> -->
 
-            <!-- <form action="/todos/createTodo" method='POST'>
+        <!-- <form action="/todos/createTodo" method='POST'>
             <input type="text" placeholder="Enter Todo Item" name='todoItem'>
             <input type="submit">
         </form>
@@ -67,21 +75,13 @@
         </form> -->
 
 
-            <% groupTodos.forEach(el=> { %>
-                <br>
-                <li data-id='<%=el._id%>'>
-                    <%= el.todo %>
-                </li>
-                <% }) %>
-
-
-                    <a href="/logout">Logout</a>
-                    <footer>
-                        <div>
-                            <a href=<%=`/group-settings/${group._id}`%><i class="fa-solid fa-gear"></i></a>
-                        </div>
-                    </footer>
-                    <script src="/js/main.js"></script>
+        <a href="/logout">Logout</a>
+        <footer>
+            <div>
+                <a href=<%=`/group-settings/${group._id}`%><i class="fa-solid fa-gear"></i></a>
+            </div>
+        </footer>
+        <script src="/js/main.js"></script>
     </body>
 
 </html>

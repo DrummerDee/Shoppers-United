@@ -85,6 +85,15 @@ header > h1{
       font-size: 1rem;
       cursor: pointer;
   }
+
+  .done-by{
+      color: #52e40e;
+      border: 0.2rem solid #52e40e;
+      padding: 0.2rem 0.6rem 0.2rem 0.6rem;
+      border-radius: 0.3rem;
+      margin-left: 0.5rem;
+      font-size: 1rem;
+  }
     .del,
     .share{
         color: white;
