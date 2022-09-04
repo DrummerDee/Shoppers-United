@@ -6,6 +6,8 @@ const canShare = document.querySelectorAll('span.unshared');
 const shareBtn= document.querySelectorAll('.share');
 const collabTn = document.getElementById('collab__key');
 
+const forgotPasswordPrompt = document.getElementById('forgotPasswordPrompt');
+
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteTodo)
 })
@@ -112,4 +114,10 @@ async function markUnshared(){
 collabTn.addEventListener('click',sanityCheck);
 const sanityCheck = () => {
   console.log('clicked')
+}
+
+forgotPasswordPrompt.addEventListener('click',forgotPassword);
+
+function forgotPassword(){
+  console.log('Hello')
 }
