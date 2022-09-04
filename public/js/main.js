@@ -7,6 +7,7 @@ const canShare = document.querySelectorAll("span.unshared");
 const shareBtn = document.querySelectorAll(".share");
 const collabTn = document.getElementById("collab__key");
 
+
 Array.from(deleteBtn).forEach((el) => {
   el.addEventListener("click", deleteTodo);
 });
@@ -109,8 +110,17 @@ async function markUnshared() {
     console.log(err);
   }
 }
-// this will send notification to the user if the invitation is successfull or not
-collabTn.addEventListener("click", sanityCheck);
+
+// this will send notification to the user if the invitation is successfull or not 
+
+
+// document.getElementById("forgotPasswordPrompt").addEventListener('click', forgotYourPassword);
+
+// function forgotYourPassword(){
+//   console.log("Hello")
+// }
+
 const sanityCheck = () => {
-  console.log("clicked");
-};
+  prompt("Something Something Dark Side")
+}
+document.getElementById('forgotPasswordPrompt').addEventListener('click',sanityCheck);
