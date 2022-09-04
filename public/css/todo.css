@@ -4,5 +4,89 @@
     padding: 0;
 }
 body{
-    background-color: #5498FD;
+    background-color: white;
 }
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+header > h1{
+    color: black;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 3rem;
+  }
+.home {
+    border: solid 0.3rem #5498FD;
+    background-color: #5498FD;
+    color: rgb(255, 254, 254);
+    font-size: 1.6rem;
+    margin: 0.5rem 0 0 0.5rem;
+    text-decoration: none;
+}
+.user {
+    margin-left: 0.8rem;   
+}
+.user:hover{
+    cursor: pointer;
+    color: #5498FD;
+    transition: ease 0.3s;
+}
+.header > h5 {
+    font-size: 1.5rem;
+    margin: 0.5rem 1rem 0 0;
+    text-transform: capitalize;
+}
+  h2{
+    color: black;
+    margin-bottom: 1rem;
+    text-decoration: underline;
+    font-size: 2rem;
+  }
+.todo__Lists{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    padding: 2rem 0 2rem 0;
+}
+.personal,
+.invited{
+    flex: 1;
+    text-align: center;
+    margin: 0 2rem 0 2rem;
+    padding: 2rem 0 2rem 0;
+    border: 0.2rem solid #5498FD;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.192);
+}
+  .todoItem{
+    color: black;
+    font-size: 1.3rem;
+    list-style-type: none;
+    margin: 1rem auto;
+  }
+    .del,
+    .share{
+        color: white;
+        border: 0.2rem solid #EA8F07;
+        padding: 0.2rem 0.6rem 0.2rem 0.6rem;
+        background-color: #EA8F07;
+        border-radius: 0.3rem;
+        margin-left: 0.5rem;
+        font-size: 1rem;
+    }
+    .del:hover,
+    .share:hover{
+        border:0.2rem solid #ca7b04;
+        background-color: #ca7b04;
+        cursor: pointer;
+        transition: all ease 0.3s;
+    }
+  .completed{
+    text-decoration: line-through;
+    color: gray;
+  }
+  .not{
+    text-decoration: none;
+  }
+ 
+  
