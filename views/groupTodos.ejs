@@ -19,7 +19,7 @@
             </h5>
         </div>
         <h1>
-            <%= group[0].name %>'s Lists
+            <%= group.name %>'s Lists
         </h1>
     </header>
 
@@ -43,23 +43,23 @@
             <%= user.userName %> has things left to do.
         </h2>
 
-        <form action="/todos/createTodo" method='POST'>
+        <!-- <form action="/todos/createTodo" method='POST'>
             <input type="text" placeholder="Enter Todo Item" name='todoItem'>
             <input type="submit">
         </form>
 
-        <p>Invite others to access your list with your key: <%= user._id %>
+        <p>Invite others to access your list with your key: <%= user._id %> 
         </p>
-        <h1><a href=<%=`/todos/addUser/${group[0]._id}` %> >add user to the group</a></h1>
+        <h1><a href=<%=`/todos/addUser/${group._id}` %> >add user to the group</a></h1>
         <form action="/todos/collab" method='POST'>
             <p>To collab on someone's list enter their key</p>
             <input type="text" placeholder="Enter Key to " name='collabKey'>
             <input type="submit">
         </form>
-        <form action=<%=`/todos/createTodo/${group[0]._id}`%> method='POST'>
+        <form action=<%=`/todos/createTodo/${group._id}`%> method='POST'>
             <input type=" text" placeholder="Enter Todo Item" name='todoItem'>
             <input type="submit">
-        </form>
+        </form> -->
 
 
         <% groupTodos.forEach(el=> { %>
@@ -73,7 +73,7 @@
                 <a href="/logout">Logout</a>
                 <footer>
                     <div>
-                        <a href=<%=`/group-settings/${group[0]._id}`%><i class="fa-solid fa-gear"></i></a>
+                        <a href=<%=`/group-settings/${group._id}`%><i class="fa-solid fa-gear"></i></a>
                     </div>
                 </footer>
                 <script src="js/main.js"></script>
