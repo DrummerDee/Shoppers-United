@@ -1,0 +1,10 @@
+In order for me to push i have to give head. . . on main
+
+git add .
+
+git commit -m  "Whatever message i want to add"
+
+git push origin HEAD:main
+
+
+then i should be good
