@@ -11,7 +11,7 @@ module.exports = {
       const group = await Group.find({ _id: groupId });
       console.log({ groupTodos });
       res.render("groupTodos.ejs", {
-        group: group,
+        group: group[0],
         groupTodos: groupTodos,
         user: req.user,
       });

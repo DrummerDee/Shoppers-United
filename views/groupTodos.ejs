@@ -1,32 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>group todos</title>
-        <link rel="stylesheet" href="/css/group.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bda3ab8878.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/todo.css">
+    <title>Group Todos --Shoppers United</title>
+</head>
 
-    <body>
-        <h1>Group Todos</h1>
+<body>
+    <header>
+        <div class="header">
+            <a href='/' class="home"> Shoppers United </a>
+            <h5>
+                <%= user.userName %><a href='/user'><i class="user fa-solid fa-user"></i></a>
+            </h5>
+        </div>
+        <h1>
+            <%= group[0].name %>'s Lists
+        </h1>
+    </header>
 
+    <section class='todo__Lists'>
+        <div class="personal">
+            <h2>Personal tasks</h2>
+            <ul>
+                <% groupTodos.forEach( el=> { %>
+                    <li class='todoItem' data-id='<%=el._id%>'>
+                        <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
+                        <span class='<%= el.shared === true ? ' unshared' : 'share' %>'>Share</span>
+                        <span class='del'> Delete </span>
+
+                    </li>
+                    <% }) %>
+            </ul>
+        </div>
+    </section>
+    <div class="form">
+        <h2>
+            <%= user.userName %> has things left to do.
+        </h2>
+
+        <form action="/todos/createTodo" method='POST'>
+            <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+            <input type="submit">
+        </form>
+
+        <p>Invite others to access your list with your key: <%= user._id %>
+        </p>
         <h1><a href=<%=`/todos/addUser/${group[0]._id}` %> >add user to the group</a></h1>
-
-        <!-- <h3>
-            Group Todos: <%= groupTodos %>
-        </h3>
-        <h3>
-            Group: <%= group %>
-        </h3>
-        <h3>
-            User: <%= user %>
-        </h3> -->
-
-
-
-
+        <form action="/todos/collab" method='POST'>
+            <p>To collab on someone's list enter their key</p>
+            <input type="text" placeholder="Enter Key to " name='collabKey'>
+            <input type="submit">
+        </form>
         <form action=<%=`/todos/createTodo/${group[0]._id}`%> method='POST'>
             <input type=" text" placeholder="Enter Todo Item" name='todoItem'>
             <input type="submit">
@@ -38,13 +67,16 @@
             <li data-id='<%=el._id%>'>
                 <%= el.todo %>
             </li>
-            <!-- <br> -->
             <% }) %>
 
 
                 <a href="/logout">Logout</a>
-
+                <footer>
+                    <div>
+                        <a href=<%=`/group-settings/${group[0]._id}`%><i class="fa-solid fa-gear"></i></a>
+                    </div>
+                </footer>
                 <script src="js/main.js"></script>
-    </body>
+</body>
 
 </html>

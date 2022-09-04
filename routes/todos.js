@@ -49,5 +49,7 @@ router.put("/markIncomplete", todosController.markIncomplete);
 
 router.delete("/deleteTodo", todosController.deleteTodo);
 
+//get page for group settings 
+router.get("/group-settings/:groupId",ensureAuth,groupsController.showGroupSettings);
 module.exports = router;
 

@@ -13,7 +13,6 @@ module.exports = {
         .populate("users")
         .lean();
       console.log(groups);
-      //   console.log(groups[0].users);
       res.render("groups.ejs", { groups: groups, user: req.user });
     } catch (err) {
       console.log(err);

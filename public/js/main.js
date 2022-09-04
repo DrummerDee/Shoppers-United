@@ -52,7 +52,6 @@ async function markComplete(){
             })
         })
         const data = await response.json()
-        console.log(data)
         location.reload()
     }catch(err){
         console.log(err)
@@ -70,7 +69,6 @@ async function markIncomplete() {
       }),
     });
     const data = await response.json();
-    console.log(data);
     location.reload();
   } catch (err) {
     console.log(err);
