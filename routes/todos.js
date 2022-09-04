@@ -1,34 +1,16 @@
-const express = require("express");
-const router = express.Router();
-const todosController = require("../controllers/todos");
-const groupsController = require("../controllers/groups");
-const { ensureAuth } = require("../middleware/auth");
+const express = require('express')
+const router = express.Router()
+const todosController = require('../controllers/todos') 
+const { ensureAuth } = require('../middleware/auth')
 
-// Get groups list
-router.get("/", ensureAuth, groupsController.getGroups);
-// show create group view
-router.get("/createGroup", groupsController.showCreateGroup);
+router.get('/', ensureAuth, todosController.getTodos)
 
-// create group
-router.post("/createGroup", groupsController.createGroup);
+router.post('/createTodo', todosController.createTodo)
 
-// router.get('/', ensureAuth, todosController.getTodos)
-router.get("/:groupId", ensureAuth, todosController.getGroupTodos);
-router.post("/createTodo/:groupId", todosController.createTodo);
-// show add user form
-router.get(
-  "/addUser/:groupId",
-  ensureAuth,
-  groupsController.showAddUserTogroup
-);
+router.put('/markComplete', todosController.markComplete)
 
-// add user to a specific group
-router.post("/addUserToGroup/:groupId", groupsController.addUserToGroup);
+router.put('/markIncomplete', todosController.markIncomplete)
 
-router.put("/markComplete", todosController.markComplete);
+router.delete('/deleteTodo', todosController.deleteTodo)
 
-router.put("/markIncomplete", todosController.markIncomplete);
-
-router.delete("/deleteTodo", todosController.deleteTodo);
-
-module.exports = router;
+module.exports = router
