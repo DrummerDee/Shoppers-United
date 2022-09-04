@@ -52,7 +52,7 @@ module.exports = {
         res.json('Task Shared')
     }catch(err){
         console.log(err)
-        res.render('error/404.ejs')
+        res.render('404')
     }
 },
 markUnshared: async (req, res)=>{

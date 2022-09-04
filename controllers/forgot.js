@@ -3,4 +3,4 @@ module.exports = {
         res.render('forgot.ejs')
         console.log('forgot password page')
     }
-    }
+}
