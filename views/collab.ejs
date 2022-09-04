@@ -12,10 +12,12 @@
     <a href="/todos">Go to home</a>
     <ul>
     <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-            </li>
-    <% }) %>    
+            <% if (el.shared ===true){ %>
+                <li class='todoItem' data-id='<%=el._id%>'>
+                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                    <span class='del'> Delete </span>
+                </li>
+        <% }}) %>    
     </ul>
 
     <h2><%= user.userName %> and <%= collabUser %> Have <%= left %> things left to do.</h2>
