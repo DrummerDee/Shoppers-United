@@ -7,6 +7,8 @@ const shareBtn= document.querySelectorAll('.share');
 const collabTn = document.getElementById('collab__key');
 const forgotPassword = document.getElementById('forgotPasswordButton');
 
+const forgotPasswordPrompt = document.getElementById('forgotPasswordPrompt');
+
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteTodo)
 })
@@ -110,8 +112,15 @@ async function markUnshared(){
   }
 }
 // this will send notification to the user if the invitation is successfull or not 
-forgotPassword.addEventListener('click',createPasswordPrompt);
 
-function createPasswordPrompt(){
-  prompt('Hello')
+
+// document.getElementById("forgotPasswordPrompt").addEventListener('click', forgotYourPassword);
+
+// function forgotYourPassword(){
+//   console.log("Hello")
+// }
+
+const sanityCheck = () => {
+  prompt("Something Something Dark Side")
 }
+document.getElementById('forgotPasswordPrompt').addEventListener('click',sanityCheck);
