@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>group todos</title>
+        <link rel="stylesheet" href="/css/group.css">
+    </head>
+
+    <body>
+        <h1>Group Todos</h1>
+
+        <h1><a href=<%=`/todos/addUser/${group[0]._id}` %> >add user to the group</a></h1>
+
+        <!-- <h3>
+            Group Todos: <%= groupTodos %>
+        </h3>
+        <h3>
+            Group: <%= group %>
+        </h3>
+        <h3>
+            User: <%= user %>
+        </h3> -->
+
+
+
+
+        <form action=<%=`/todos/createTodo/${group[0]._id}`%> method='POST'>
+            <input type=" text" placeholder="Enter Todo Item" name='todoItem'>
+            <input type="submit">
+        </form>
+
+
+        <% groupTodos.forEach(el=> { %>
+            <br>
+            <li data-id='<%=el._id%>'>
+                <%= el.todo %>
+            </li>
+            <!-- <br> -->
+            <% }) %>
+
+
+                <a href="/logout">Logout</a>
+
+                <script src="js/main.js"></script>
+    </body>
+
+</html>
