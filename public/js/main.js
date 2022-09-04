@@ -5,6 +5,7 @@ const todoComplete = document.querySelectorAll("span.completed");
 const canShare = document.querySelectorAll('span.unshared');
 const shareBtn= document.querySelectorAll('.share');
 const collabTn = document.getElementById('collab__key');
+const forgotPassword = document.getElementById('forgotPasswordButton');
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteTodo)
@@ -109,7 +110,8 @@ async function markUnshared(){
   }
 }
 // this will send notification to the user if the invitation is successfull or not 
-collabTn.addEventListener('click',sanityCheck);
-const sanityCheck = () => {
-  console.log('clicked')
+forgotPassword.addEventListener('click',createPasswordPrompt);
+
+function createPasswordPrompt(){
+  prompt('Hello')
 }
