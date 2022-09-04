@@ -1,8 +1,6 @@
-const validator = require('validator')
-const User = require('../models/User')
-let user = {
-    email: "bob1@gmail.com",
-}
+const validator = require('validator');
+const User = require('../models/User');
+
 module.exports = {
     postForgot: (req, res, next) => {
         const { email } = req.body;
@@ -13,7 +11,8 @@ module.exports = {
         const validationErrors = []
         if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' })
 
-        // check that user exists in the Shoppers United Database 
+        // check that user exists in the Shoppers United Database
+        userEmail : user.email 
         if (email !== user.email) {
             res.send('User is not registered')
             return
