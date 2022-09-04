@@ -1,23 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/signup.css">
+    <script src="https://kit.fontawesome.com/a995213cd6.js" crossorigin="anonymous"></script>
     <title>Hi there --Shoppers United</title>
 </head>
+
 <body>
     <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
-    </form>
+        <% messages.errors.forEach( el=> { %>
+            <div class="alert alert-danger">
+                <%= el.msg %>
+            </div>
+            <% }) %>
+                <% } %>
+                    <main>
+                        <h1> Welcome Back Shopper </h1>
+                        <form action="/signup" method="POST">
+                            <div>
+                            <label> Username </label>
+                            <input type="text" name="userName" placeholder="Enter User Name">
+                            </div>
+                            <div>
+                            <label> Email </label>
+                            <input type="email" name="email" placeholder="Enter Email">
+                            </div>
+                            <div>
+                            <label> Password </label>
+                                <input type="password" name="password" placeholder="Enter Password"/>
+                                <span class="eye">
+                                    <i class="icon fa-solid fa-eye"></i>
+                                    <i class="fa-sharp fa-solid fa-eye-slash"></i>
+                                </span>
+                            </div>
+                            <div>
+                            <label> Confirm Password </label>
+                            <input type="password" name="confirmPassword" placeholder="Confirm Password">
+                            </div>
+                            <input type="submit" value="Sign In" id="sign__in">
+                        </form>
+                    </main>
 </body>
+
 </html>

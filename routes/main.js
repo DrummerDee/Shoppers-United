@@ -23,5 +23,4 @@ router.get('/forgot-password', forgotController.getForgot);
 // });
 
 
-
 module.exports = router
