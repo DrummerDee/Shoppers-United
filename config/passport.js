@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt')
 module.exports = function (passport) {
   passport.use(new LocalStrategy({ usernameField: 'username' }, (username, password, done) => {
     var criteria = (username.indexOf('@') === -1) ? {username: username} : {email: username};
-    User.findOne({ username: username.toLowerCase() }, (err, user) => {
+    User.findOne(criteria, { username: username.toLowerCase() }, (err, user) => {
       if (err) { return done(err) }
       if(!user) {return done(null, false, {message: 'Incorrect username.'}); }
       
@@ -14,7 +14,7 @@ module.exports = function (passport) {
         return done(null, false, { msg: 'Your account was registered using a sign-in provider. To enable password login, sign in using a provider, and then set a password under your user profile.' })
       }
       
-      bcrypt.comparePassword(password, (err, isMatch) => {
+      bcrypt.comparePassword(password, user.password, (err, isMatch) => {
         if (err) { return done(err) }
         if (isMatch) {
           return done(null, user)
