@@ -1,7 +1,7 @@
 {
   "name": "todo-mvc-auth-local",
   "version": "1.0.0",
-  "description": "A Simple ToDo App is built using the MVC Architecture, we have also implemented \"authorization\" so folx can sign up, customize & personalize the app",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
@@ -19,7 +19,7 @@
     "express-session": "^1.17.1",
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
-    "materialize-css": "^1.0.0-rc.2",
+    "materialize-css": "^1.0.0",
     "mongodb": "^3.6.5",
     "mongoose": "^5.12.3",
     "morgan": "^1.10.0",
@@ -27,14 +27,10 @@
     "nodemon": "^2.0.19",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
-    "validator": "^13.6.0"
+    "validator": "^13.7.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/viktorCodes/Shoppers-United.git"
-  },
-  "bugs": {
-    "url": "https://github.com/viktorCodes/Shoppers-United/issues"
-  },
-  "homepage": "https://github.com/viktorCodes/Shoppers-United#readme"
+    "url": ""
+  }
 }
