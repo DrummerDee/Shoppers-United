@@ -6,6 +6,10 @@ const todoComplete = document.querySelectorAll("span.completed + span.repeat");
 const canShare = document.querySelectorAll("span.unshared");
 const shareBtn = document.querySelectorAll(".share");
 const collabTn = document.getElementById("collab__key");
+// buttons for pop menu 
+const popup = document.getElementById('popup-container')
+const open = document.getElementById('forgotPwdBtn')
+const close = document.getElementById('close')
 
 
 Array.from(deleteBtn).forEach((el) => {
@@ -124,3 +128,9 @@ const sanityCheck = () => {
   prompt("Something Something Dark Side")
 }
 document.getElementById('forgotPasswordPrompt').addEventListener('click',sanityCheck);
+
+
+//open pop up 
+open.addEventListener('click', () => {
+  popup.classList.add('show')
+})
