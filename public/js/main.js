@@ -8,6 +8,8 @@ const forgotPassword = document.getElementById('forgotPasswordButton');
 const forgotPasswordPrompt = document.getElementById('forgotPasswordPrompt');
 const togglePassword = document.querySelector("#togglePassword");
 const password = document.querySelector("#password");
+const togglePassword2 = document.querySelector("#togglePassword2");
+const password2 = document.querySelector("#password2");
 
 Array.from(deleteBtn).forEach((el) => {
   el.addEventListener('click', deleteTodo)
@@ -42,12 +44,7 @@ async function deleteTodo() {
   } catch (err) {
     console.log(err);
   }
-Array.from(shareBtn).forEach((el) => {
-  el.addEventListener('click', markShared)
-});
-Array.from(canShare).forEach((el) => {
-  el.addEventListener('click', markUnshared)
-});
+
 
 
 async function deleteTodo() {
@@ -154,6 +151,15 @@ togglePassword.addEventListener('click', function (e) {
   // toggle the eye / eye slash icon
   this.classList.toggle('fa-eye');
 });
+
+togglePassword2.addEventListener('click', function (e) {
+  // toggle the type attribute
+  const type = password2.getAttribute('type') === 'password' ? 'text' : 'password';
+  password2.setAttribute('type', type);
+  // toggle the eye / eye slash icon
+  this.classList.toggle('fa-eye');
+});
+
 
 
 
