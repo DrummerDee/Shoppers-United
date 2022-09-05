@@ -52,7 +52,7 @@ async function deleteTodo() {
 async function markComplete() {
   const todoId = this.parentNode.dataset.id;
   try {
-    const response = await fetch("todos/markComplete", {
+    const response = await fetch("/groups/markComplete", {
       method: "put",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
@@ -82,6 +82,7 @@ async function markIncomplete() {
     console.log(err);
   }
 }
+
 async function markShared() {
   const todoId = this.parentNode.dataset.id;
   try {
