@@ -4,6 +4,20 @@ const todoItem = document.querySelectorAll("span.not + span.done");
 // select the repeat button after the todo item
 const todoComplete = document.querySelectorAll("span.completed + span.repeat");
 
+// delete group confirmation
+const deleteGroupHandler = document.querySelector("#delete-group");
+deleteGroupHandler.addEventListener("click", function (event) {
+  event.preventDefault();
+  const confirmed = confirm(this.getAttribute("data-confirm"));
+  const groupId = this.getAttribute("data-groupId");
+  if (confirmed) {
+    console.log("Confirmed");
+    // console.log(groupId);
+    deleteGroup(groupId);
+  }
+});
+// }
+
 const canShare = document.querySelectorAll("span.unshared");
 const shareBtn = document.querySelectorAll(".share");
 const collabTn = document.getElementById("collab__key");
@@ -78,6 +92,26 @@ async function markIncomplete() {
     });
     const data = await response.json();
     location.reload();
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+// Delete group
+async function deleteGroup(groupId) {
+  // console.log("****", groupId);
+  try {
+    const response = await fetch("/groups/deleteGroup", {
+      method: "delete",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({
+        groupIdFromJSFile: groupId,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+    let url = location.href;
+    location.assign(url.slice(0, url.lastIndexOf("/")));
   } catch (err) {
     console.log(err);
   }

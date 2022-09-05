@@ -96,4 +96,23 @@ module.exports = {
       console.log(err);
     }
   },
+  deleteGroup: async (req, res) => {
+    let groupId = req.body.groupIdFromJSFile;
+    console.log("the group to delete: ", groupId);
+    const groupAdminId = req.user._id;
+    try {
+      let group = await Group.find({ _id: groupId });
+      // console.log(group[0].users.includes(userToAdd));
+      if (groupAdminId == group[0].createdBy) {
+        await Group.deleteOne({ _id: groupId });
+        await Todo.deleteMany({ groupId: groupId });
+        res.json("Group deleted");
+        // res.redirect("/groups");
+      } else {
+        throw new Error("you are not the admin of this group");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };

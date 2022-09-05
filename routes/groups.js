@@ -58,6 +58,9 @@ router.post(
   groupsController.deleteUserFromGroup
 );
 
+// delete group
+router.delete("/deleteGroup", groupsController.deleteGroup);
+
 router.put("/markComplete", todosController.markComplete);
 
 router.put("/markIncomplete", todosController.markIncomplete);
