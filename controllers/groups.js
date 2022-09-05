@@ -24,6 +24,7 @@ module.exports = {
       await Group.create({
         name: groupName,
         users: [req.user],
+        createdBy: req.user._id,
       });
       console.log("group created");
       res.redirect("/groups");
@@ -44,14 +45,19 @@ module.exports = {
   addUserToGroup: async (req, res) => {
     const groupId = req.params.groupId;
     const userToAdd = req.body.userToAdd;
+    const groupAdminId = req.user._id;
     console.log({ groupId, userToAdd });
     try {
       let group = await Group.find({ _id: groupId });
       console.log(group[0].users.includes(userToAdd));
-      if (!group[0].users.includes(userToAdd)) {
-        group[0].users.push(userToAdd);
-        await Group.updateOne({ _id: groupId }, { $set: group[0] });
-        res.redirect("/groups");
+      if (groupAdminId == group[0].createdBy) {
+        if (!group[0].users.includes(userToAdd)) {
+          group[0].users.push(userToAdd);
+          await Group.updateOne({ _id: groupId }, { $set: group[0] });
+          res.redirect("/groups");
+        }
+      } else {
+        throw new Error("you are not the admin of this group");
       }
     } catch (err) {
       console.log(err);
