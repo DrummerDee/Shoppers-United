@@ -25,16 +25,32 @@
         <label> Email </label>
         <input type="email" name="email" placeholder="Enter Email"
         >
+            <!-- MC MADE THIS -->
+    <div id = 'passwordPrompt' class = "hidden">
+        <form action = /forgotPassword method="PUT">
+            <label>Enter your email below to get a recovery password</label>
+        <input type="email" name="email" placeholder="Enter Email"
+        >
+        <input type ='submit' value = 'Reset Password' id="forgotPassword">
+        </form>    
+    </div>
+    <!-- MC MADE THIS -->
+
+
         <label> Password </label>
         <input type="password" name="password" placeholder="Enter Password">
-        <div id="remember">
-            <button id="forgotPwdBtn"> Forgot Password </button>
-        </div>
         <input type="submit" value="Sign In" id="submit">
     </form>
+   
     <div class="text"> 
         <h4> New Shopper? <a href="/signup"> Sign Up </a></h4>
     </div>
+    <div id="remember">
+        <button id="forgotPwdBtn"> Forgot Password?</button>
+    </div>
+
+
+
 </main>
 <script src ='/js/main.js'></script>
 </body>

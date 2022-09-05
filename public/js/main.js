@@ -119,8 +119,14 @@ async function markUnshared() {
 // function forgotYourPassword(){
 //   console.log("Hello")
 // }
+const forgotPasswordButton = document.querySelector('#forgotPwdBtn')
 
-const sanityCheck = () => {
-  prompt("Something Something Dark Side")
+forgotPasswordButton.addEventListener('click',forgotPassword);
+
+
+
+function forgotPassword(){
+const passwordDisplay = document.querySelector('#passwordPrompt')
+  
+passwordDisplay.classList.toggle('hidden')
 }
-document.getElementById('forgotPasswordPrompt').addEventListener('click',sanityCheck);

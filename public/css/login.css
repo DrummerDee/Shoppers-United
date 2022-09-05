@@ -94,3 +94,21 @@ h4{
     text-decoration: none;
     font-weight: 600;
 }
+
+
+/* MC */
+#passwordPrompt{
+    margin: 0 15%;
+    padding-bottom: 25%;
+    height: 50px;
+    width: 300px;
+    color: black;
+    border: black 2px solid;
+    background-color: rebeccapurple;
+    z-index: 10;
+    position: absolute;
+}
+
+.hidden{
+    display: none;
+}
