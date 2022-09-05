@@ -41,6 +41,8 @@ async function deleteTodo() {
     location.reload();
   } catch (err) {
     console.log(err);
+  }
+Array.from(shareBtn).forEach((el) => {
   el.addEventListener('click', markShared)
 });
 Array.from(canShare).forEach((el) => {
@@ -142,11 +144,7 @@ async function markUnshared() {
 // function forgotYourPassword(){
 //   console.log("Hello")
 // }
-
-const sanityCheck = () => {
-  prompt("Something Something Dark Side")
 }
-
 
 
 
