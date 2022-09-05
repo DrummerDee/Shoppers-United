@@ -4,12 +4,11 @@
     padding: 0;
 }
 body{
-    height: 100vh;
-    background-image: url('../images/homepage.jpeg');
+    background-image: url('../images/bluelogo.png');
+    background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: 50% 40%;
     text-align: center;
-    overflow: hidden;
 }
 h1{
     margin-top: 1rem;
@@ -83,14 +82,8 @@ input:focus{
     text-decoration: none;
     font-weight: 600;
 }
-/* icons for the eyes */
 .eye{
     position:relative;
     top: -3rem;
     margin-right: -10rem;
-}
-/* notifications for alert messages */
-.alert {
-    color: white;
-    font-size: 1.5rem;
 }
