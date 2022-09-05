@@ -22,28 +22,28 @@
                         <h1> Welcome Back Shopper </h1>
                         <form action="/signup" method="POST">
                             <div>
-                            <label> Username </label>
-                            <input type="text" name="userName" placeholder="Enter User Name">
+                                <label> Username </label>
+                                <input type="text" name="userName" placeholder="Enter User Name">
                             </div>
                             <div>
-                            <label> Email </label>
-                            <input type="email" name="email" placeholder="Enter Email">
+                                <label> Email </label>
+                                <input type="email" name="email" placeholder="Enter Email">
                             </div>
                             <div>
-                            <label> Password </label>
-                                <input type="password" name="password" placeholder="Enter Password"/>
+                                <label> Password </label>
+                                <input type="password" name="password" placeholder="Enter Password" id="password" />
                                 <span class="eye">
-                                    <i class="icon fa-solid fa-eye"></i>
-                                    <i class="fa-sharp fa-solid fa-eye-slash"></i>
+                                    <i class="fa-sharp fa-solid fa-eye-slash" id="togglePassword"></i>
                                 </span>
                             </div>
                             <div>
-                            <label> Confirm Password </label>
-                            <input type="password" name="confirmPassword" placeholder="Confirm Password">
+                                <label> Confirm Password </label>
+                                <input type="password" name="confirmPassword" placeholder="Confirm Password">
                             </div>
                             <input type="submit" value="Sign In" id="sign__in">
                         </form>
                     </main>
+                    <script src='/js/main.js'></script>
 </body>
 
 </html>
