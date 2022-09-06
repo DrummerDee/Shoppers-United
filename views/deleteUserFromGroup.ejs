@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add user </title>
+        <link rel="stylesheet" href="/css/group.css">
+    </head>
+
+    <body>
+        <h1>Delete User From A Group</h1>
+
+        <!-- <h3>
+            Group: <%= groupId %>
+        </h3> -->
+
+        <form action=<%=`/groups/deleteUserFromGroup/${groupId}`%> method='POST'>
+            <input type="text" placeholder="Enter User ID" name='userToDelete'>
+            <input type="submit">
+        </form>
+
+        <a href="/logout">Logout</a>
+
+        <script src="js/main.js"></script>
+    </body>
+
+</html>
