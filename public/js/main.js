@@ -156,4 +156,12 @@ togglePassword.addEventListener('click', function (e) {
 });
 
 
+//404 functionality 
+const redirect = () => {
+  setTimeout(() => {
+    window.location.replace('/')
+  },100)
+}
+
+
 

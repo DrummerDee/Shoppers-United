@@ -4,24 +4,6 @@ const todosController = require("../controllers/todos");
 const groupsController = require("../controllers/groups");
 const { ensureAuth } = require("../middleware/auth");
 
-// router.get('/', ensureAuth, todosController.getTodos)
-
-// router.post('/createTodo', todosController.createTodo)
-
-// router.put('/markComplete', todosController.markComplete)
-
-// router.put('/markIncomplete', todosController.markIncomplete)
-
-// router.delete('/deleteTodo', todosController.deleteTodo)
-
-// router.post("/collab", todosController.collab);
-
-// router.get("/collab", todosController.collab);
-
-// router.put('/markShared', todosController.markShared);
-
-// router.put('/markUnshared', todosController.markUnshared);
-
 // Get groups list
 router.get("/", ensureAuth, groupsController.getGroups);
 // show create group view
@@ -34,11 +16,7 @@ router.post("/createGroup", groupsController.createGroup);
 router.get("/:groupId", ensureAuth, todosController.getGroupTodos);
 router.post("/createTodo/:groupId", todosController.createTodo);
 // show add user form
-router.get(
-  "/addUser/:groupId",
-  ensureAuth,
-  groupsController.showAddUserTogroup
-);
+router.get("/addUser/:groupId",ensureAuth,groupsController.showAddUserTogroup);
 
 // add user to a specific group
 router.post("/addUserToGroup/:groupId", groupsController.addUserToGroup);
@@ -49,6 +27,7 @@ router.put("/markIncomplete", todosController.markIncomplete);
 
 router.delete("/deleteTodo", todosController.deleteTodo);
 
-//get page for group settings
-// router.get("/group-settings/:groupId",ensureAuth,groupsController.showGroupSettings);
+
+
+
 module.exports = router;
