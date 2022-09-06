@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Groups</title>
+        <link rel="stylesheet" href="/css/group.css">
+    </head>
+
+    <body>
+        <h1>Groups</h1>
+
+        <a href="/todos/createGroup">Create group</a>
+        <ul class="card__ul">
+            <% if (groups.length===0) { %>
+                <h3>No groups yet</h3>
+                <a href="/todos/createGroup">Create group</a>
+                <% } else { %>
+                    <% groups.forEach( el=> { %>
+                        <a href=<%=`/todos/${el._id}`%>>
+                            <li class="card" data-id='<%=el._id%>'>
+                                <div class="">
+                                    <p class="card__title"><span>
+                                            <%= el.name %>
+                                        </span></p>
+                                    <p class="card__num">Todos: 9</p>
+                                    <p class="card__num">Members: <%= el.users.length %>
+                                    </p>
+                                </div>
+                            </li>
+                        </a>
+                        <% }) %>
+                            <%}%>
+
+        </ul>
+
+
+
+
+        <a href="/logout">Logout</a>
+
+        <script src="js/main.js"></script>
+    </body>
+
+</html>

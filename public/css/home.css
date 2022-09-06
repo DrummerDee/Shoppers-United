@@ -69,3 +69,23 @@ body > h5 {
 body > h5 > a {
     color: #EA8F07;
 }
+/* mobile resposiveness css */
+@media only screen 
+and (min-width: 100px) 
+and (max-width: 900px)
+and (-webkit-min-device-pixel-ratio: 2){
+    h1{
+        color:red;
+        font-size: 1.5rem;
+    }
+    body{
+        height: 100%;
+        background-image: url('../images/homepage.jpeg');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        text-align: center;
+        overflow: hidden;
+        width:100%;
+    }
+}

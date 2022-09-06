@@ -1,5 +1,6 @@
 const Group = require("../models/Group");
 const mongoose = require("mongoose");
+const Todo = require("../models/Todo");
 
 module.exports = {
   getGroups: async (req, res) => {
@@ -12,7 +13,7 @@ module.exports = {
       })
         .populate("users")
         .lean();
-      console.log(groups);
+      // console.log(groups);
       res.render("groups.ejs", { groups: groups, user: req.user });
     } catch (err) {
       console.log(err);
@@ -39,14 +40,14 @@ module.exports = {
   },
   showAddUserTogroup: (req, res) => {
     const groupId = req.params.groupId;
-    console.log({ groupId });
+    // console.log({ groupId });
     res.render("addUserToGroup.ejs", { groupId: groupId });
   },
   addUserToGroup: async (req, res) => {
     const groupId = req.params.groupId;
     const userToAdd = req.body.userToAdd;
     const groupAdminId = req.user._id;
-    console.log({ groupId, userToAdd });
+    // console.log({ groupId, userToAdd });
     try {
       let group = await Group.find({ _id: groupId });
       console.log(group[0].users.includes(userToAdd));
@@ -56,6 +57,57 @@ module.exports = {
           await Group.updateOne({ _id: groupId }, { $set: group[0] });
           res.redirect("/groups");
         }
+      } else {
+        throw new Error("you are not the admin of this group");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  // show delete user form
+  showDeleteUserFromGroup: (req, res) => {
+    // for enhancement we could get all users here so we could pass them to the view and select user instead of put the userId --future enhancement
+    const groupId = req.params.groupId;
+    res.render("deleteUserFromGroup.ejs", { groupId: groupId });
+  },
+  // Delete user
+  deleteUserFromGroup: async (req, res) => {
+    const groupId = req.params.groupId;
+    const userToDelete = req.body.userToDelete;
+    const groupAdminId = req.user._id;
+    try {
+      let group = await Group.find({ _id: groupId });
+      // console.log(group[0].users.includes(userToAdd));
+      if (groupAdminId == group[0].createdBy) {
+        if (group[0].users.includes(userToDelete)) {
+          // console.log("group[0] before filter", group[0]);
+          group[0].users = group[0].users.filter((id) => id != userToDelete);
+          // console.log("group[0] after filter", group[0]);
+          await Group.updateOne({ _id: groupId }, { $set: group[0] });
+          // let groupAfter = await Group.find({ _id: groupId });
+          // console.log("group after update", groupAfter);
+          await Todo.deleteMany({ userId: userToDelete, groupId: groupId });
+          res.redirect("/groups");
+        }
+      } else {
+        throw new Error("you are not the admin of this group");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  deleteGroup: async (req, res) => {
+    let groupId = req.body.groupIdFromJSFile;
+    console.log("the group to delete: ", groupId);
+    const groupAdminId = req.user._id;
+    try {
+      let group = await Group.find({ _id: groupId });
+      // console.log(group[0].users.includes(userToAdd));
+      if (groupAdminId == group[0].createdBy) {
+        await Group.deleteOne({ _id: groupId });
+        await Todo.deleteMany({ groupId: groupId });
+        res.json("Group deleted");
+        // res.redirect("/groups");
       } else {
         throw new Error("you are not the admin of this group");
       }
