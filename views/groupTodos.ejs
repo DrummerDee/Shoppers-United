@@ -64,8 +64,8 @@
                             <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
                             <span class='<%= el.completed === true ? ' repeat' : 'done' %>'><%= el.completed===true
                                     ? 'Repeat' : 'Done' %></span>
-                            <span class='<%= el.shared === true ? ' unshared' : 'share' %>'>Share</span>
-                            <span class='del'> Delete </span>
+                            <!-- <span class='<%= el.shared === true ? ' unshared' : 'share' %>'>Share</span> -->
+                            <span class='del-item'> Delete </span>
                             <span class='<%= el.completed === true ? ' done-by' : 'hidden' %>'><%= el.completed===true ?
                                     `Done by: ${el.doneBy}` : '' %></span>
                         </li>

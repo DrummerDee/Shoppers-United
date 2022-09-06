@@ -1,4 +1,5 @@
-const deleteBtn = document.querySelectorAll(".del");
+const deleteBtns = document.querySelectorAll(".del-item");
+
 // select the done button after the todo item
 const todoItem = document.querySelectorAll("span.not + span.done");
 // select the repeat button after the todo item
@@ -28,7 +29,7 @@ const password = document.querySelector("#password");
 const togglePassword2 = document.querySelector("#togglePassword2");
 const password2 = document.querySelector("#password2");
 
-Array.from(deleteBtn).forEach((el) => {
+Array.from(deleteBtns).forEach((el) => {
   el.addEventListener("click", deleteTodo);
 });
 
@@ -48,7 +49,7 @@ Array.from(canShare).forEach((el) => {
 async function deleteTodo() {
   const todoId = this.parentNode.dataset.id;
   try {
-    const response = await fetch("todos/deleteTodo", {
+    const response = await fetch("/groups/deleteTodo", {
       method: "delete",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
