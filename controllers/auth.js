@@ -98,10 +98,6 @@ exports.postSignup = (req, res, next) => {
     validationErrors.push({
       msg: "Password must be at least 8 characters long",
     });
-  if(!validator.isNumeric(req.body.password,{digits:(1)}))
-    validationErrors.push({
-      msg: "Password must contain a digit",
-    });
   if (req.body.password !== req.body.confirmPassword)
     validationErrors.push({ msg: "Passwords do not match" });
 

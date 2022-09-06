@@ -31,15 +31,21 @@
 
                 <!-- group settings -->
                 <div class="menu-container">
-                    <div class="dropdown" tabindex="1">
-                        <i class="db2" tabindex="1"></i>
-                        <a class="dropbtn"><i class="fa-solid fa-gear"></i> <i class="fa-solid fa-caret-down"></i></a>
-                        <div class="dropdown-content">
-                            <a href=<%=`/groups/addUser/${group._id}` %>>Add Member</a>
-                            <a href="#">Delete Member</a>
-                            <a href="#">Delete Group</a>
+                    <% if (group.createdBy==user._id) { %>
+                        <div class="dropdown" tabindex="1">
+                            <i class="db2" tabindex="1"></i>
+                            <a class="dropbtn"><i class="fa-solid fa-gear"></i> <i
+                                    class="fa-solid fa-caret-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href=<%=`/groups/addUser/${group._id}` %>>Add Member</a>
+                                <a href=<%=`/groups/deleteUser/${group._id}` %>>Delete Member</a>
+                                <!-- <a href="#" id="delete-todo">Delete Group</a> -->
+                                <a href="#" id="delete-group" data-confirm="Are you sure to delete this item?"
+                                    data-groupId=<%=`${group._id}` %>>Delete
+                                    Group</a>
+                            </div>
                         </div>
-                    </div>
+                        <% } %>
 
                 </div>
                 <!-- group settings -->
