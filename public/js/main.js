@@ -4,18 +4,19 @@ const todoItem = document.querySelectorAll("span.not + span.done");
 // select the repeat button after the todo item
 const todoComplete = document.querySelectorAll("span.completed + span.repeat");
 
-// // delete group confirmation
-// const deleteGroupHandler = document.querySelector("#delete-group");
-// deleteGroupHandler.addEventListener("click", function (event) {
-//   event.preventDefault();
-//   const confirmed = confirm(this.getAttribute("data-confirm"));
-//   const groupId = this.getAttribute("data-groupId");
-//   if (confirmed) {
-//     console.log("Confirmed");
-//     // console.log(groupId);
-//     deleteGroup(groupId);
-//   }
-// });
+// delete group confirmation
+let deleteGroupHandler = document.querySelector("a.delete-group");
+if (deleteGroupHandler) {
+  deleteGroupHandler.addEventListener("click", function (event) {
+    event.preventDefault();
+    const confirmed = confirm(this.getAttribute("data-confirm"));
+    const groupId = this.getAttribute("data-groupid");
+    if (confirmed) {
+      console.log("Confirmed");
+      deleteGroup(groupId);
+    }
+  });
+}
 
 const canShare = document.querySelectorAll("span.unshared");
 const shareBtn = document.querySelectorAll(".share");
@@ -98,7 +99,8 @@ async function markIncomplete() {
 
 // Delete group
 async function deleteGroup(groupId) {
-  // console.log("****", groupId);
+  console.log("****", groupId);
+
   try {
     const response = await fetch("/groups/deleteGroup", {
       method: "delete",
@@ -108,7 +110,7 @@ async function deleteGroup(groupId) {
       }),
     });
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     let url = location.href;
     location.assign(url.slice(0, url.lastIndexOf("/")));
   } catch (err) {
