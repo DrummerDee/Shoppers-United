@@ -1,9 +1,34 @@
-# Shoppers United
+<h1 align="center">Shoppers United</h1>
+
+<div align ="center"> 
+
+![Screen Shot 2022-09-06 at 5 50 30 PM](https://user-images.githubusercontent.com/101071525/188747585-3403e90f-9d7d-4c84-a601-e8bbd0c6fcf3.png)
+
 
 A simple web application that syncs with multiple devices and allows users to easily create lists on a single platform. Go ahead and create your shopping list! 
 
 ## Get Started
-To run this app, clone the repository and install dependencies:
+</div>
+
+## Table of Contents 
+
+1. Built With 
+2. What was learned 
+3. Optimizations
+4. Node Dependencies
+5. Prerequisities
+6. Run This App
+
+##Built With 
+
+JavaScript
+HTML 
+CSS
+Node.js
+MongoDB
+Mongoose
+Express 
+Passport.js
 
 ```bash
 $ git clone https://github.com/DrummerDee/Shoppers-United.git
