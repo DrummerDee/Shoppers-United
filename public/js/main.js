@@ -11,7 +11,6 @@ const collabTn = document.getElementById("collab__key");
 Array.from(deleteBtn).forEach((el) => {
   el.addEventListener("click", deleteTodo);
 });
-
 Array.from(todoItem).forEach((el) => {
   el.addEventListener("click", markComplete);
 });
@@ -119,10 +118,12 @@ async function markUnshared() {
 // function forgotYourPassword(){
 //   console.log("Hello")
 // }
+
+
 const forgotPasswordButton = document.querySelector('#forgotPwdBtn')
-
+const closeWindow = document.querySelector('#closeWindow')
 forgotPasswordButton.addEventListener('click',forgotPassword);
-
+closeWindow.addEventListener('click',closeTheWindow)
 
 
 function forgotPassword(){
@@ -130,3 +131,10 @@ const passwordDisplay = document.querySelector('#passwordPrompt')
   
 passwordDisplay.classList.toggle('hidden')
 }
+
+
+function closeTheWindow(){
+  const passwordDisplay = document.querySelector('#passwordPrompt')
+    
+  passwordDisplay.classList.toggle('hidden')
+  }

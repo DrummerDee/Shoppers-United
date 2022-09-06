@@ -28,13 +28,10 @@ function sendResetLink(email, id) {
         },
         Source: "codingwithchaim@gmail.com",
     };
-
     ses.sendEmail(params, (err) => {
         if (err) {
             console.log(err);
         }
     });
 }
-
-
 module.exports = sendResetLink;

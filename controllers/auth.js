@@ -58,27 +58,27 @@ exports.logout = (req, res) => {
 
 
 // MC MADE THIS
-exports.getForgotPassword = (req,res) =>{
-  const validationErrors = [];
-  if (!validator.isEmail(req.body.email))
-    validationErrors.push({ msg: "Please enter a valid email address." });
-  res.render('forgotPassword')
+// exports.getForgotPassword = (req,res) =>{
+//   const validationErrors = [];
+//   if (!validator.isEmail(req.body.email))
+//     validationErrors.push({ msg: "Please enter a valid email address." });
+//   res.render('forgotPassword')
   
-  [{ email: req.body.email }, { userName: req.body.userName }] },
-    (err, existingUser) => {
-      if (err) {
-        return next(err);
-      }
-      if (existingUser) {
-        req.flash("errors", {
-          msg: "Account with that email address or username already exists.",
-        });
-        return res.redirect("../signup");
-      }
-  req.body.email = validator.normalizeEmail(req.body.email, {
-    gmail_remove_dots: false,
-  });
-}
+//   [{ email: req.body.email }, { userName: req.body.userName }] },
+//     (err, existingUser) => {
+//       if (err) {
+//         return next(err);
+//       }
+//       if (existingUser) {
+//         req.flash("errors", {
+//           msg: "Account with that email address or username already exists.",
+//         });
+//         return res.redirect("../signup");
+//       }
+//   req.body.email = validator.normalizeEmail(req.body.email, {
+//     gmail_remove_dots: false,
+//   });
+// }
 // MC MADE THIS
 
 exports.getSignup = (req, res) => {

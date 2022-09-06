@@ -21,22 +21,23 @@
     
 <main>
     <h1> Welcome Back Shopper </h1>
+
+               <!-- MC MADE THIS -->
+               <div id = 'passwordPrompt' class ="hidden">
+                <form action = /forgotPassword method="POST"> 
+                    <label>Enter your email below to get a recovery password</label>
+                <input type="email" name="email" placeholder="Enter Email"
+                >
+                <input type ='submit' value = 'Reset Password' id="forgotPasswordButton">
+                </form>    
+                    <button id="closeWindow">Close</button>
+            </div>
+            <!-- MC MADE THIS -->
+
     <form action="/login" method="POST" autocomplete="off">
         <label> Email </label>
         <input type="email" name="email" placeholder="Enter Email"
         >
-            <!-- MC MADE THIS -->
-    <div id = 'passwordPrompt' class = "hidden">
-        <form action = /forgotPassword method="PUT">
-            <label>Enter your email below to get a recovery password</label>
-        <input type="email" name="email" placeholder="Enter Email"
-        >
-        <input type ='submit' value = 'Reset Password' id="forgotPassword">
-        </form>    
-    </div>
-    <!-- MC MADE THIS -->
-
-
         <label> Password </label>
         <input type="password" name="password" placeholder="Enter Password">
         <input type="submit" value="Sign In" id="submit">
