@@ -44,38 +44,6 @@ app.use(flash())
   
 
 
-function isLoggedIn(req, res, next){
-  if(req.isAuthenticated()) return next()
-  res.redirect('/login')
-}
-
-function isLoggedOut(req, res, next){
-  if(!req.isAuthenticated()) return next()
-  res.redirect('/logout')
-}
-
-app.get('/', isLoggedIn, (req, res) => {
-  res.render("index", {title: "Home"});
-})
-
-app.get('/login', isLoggedOut, (req, res) => {
-
-  const response = {
-      title: "login",
-      error: req.query.error
-  }
-  res.render('login', response)
-} );
-
-app.post('/login', passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/login?error=true'
-}));
-
-app.get('logout', function (req, res) {
-  req.logout();
-  res.redirect('/')
-});
 
 
 

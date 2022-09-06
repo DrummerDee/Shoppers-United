@@ -14,7 +14,7 @@ module.exports = function (passport) {
         return done(null, false, { msg: 'Your account was registered using a sign-in provider. To enable password login, sign in using a provider, and then set a password under your user profile.' })
       }
       
-      bcrypt.comparePassword(password, user.password, (err, isMatch) => {
+      bcrypt.compare(password, user.password, (err, isMatch) => {
         if (err) { return done(err) }
         if (isMatch) {
           return done(null, user)
@@ -24,8 +24,69 @@ module.exports = function (passport) {
     })
   }))
 
-
+  function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()) return next()
+    res.redirect('/login')
+  }
   
+  function isLoggedOut(req, res, next){
+    if(!req.isAuthenticated()) return next()
+    res.redirect('/logout')
+  }
+  
+  app.get('/', isLoggedIn, (req, res) => {
+    res.render("index", {title: "Home"});
+  })
+  
+  app.get('/login', isLoggedOut, (req, res) => {
+  
+    const response = {
+        title: "login",
+        error: req.query.error
+    }
+    res.render('login', response)
+  } );
+  
+  app.post('/login', passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login?error=true'
+  }));
+  
+  app.get('logout', function (req, res) {
+    req.logout();
+    res.redirect('/')
+  });
+  
+
+
+  //Setup Our admin
+
+app.get('/setup', async(req, res) =>{
+  const exists = await User.exists({username: "admin"})
+
+  if(exists) {
+      res,redirect('/login');
+      return;
+  };
+
+  bcrypt.genSalt(10, function(err, salt){
+      if(err) return next(err);
+      
+      bcrypt.hash("password", salt, function(err, hash){
+          if(err) return next(err);
+
+          const newAdmin = new User({
+              username: "admin",
+              password: hash
+          });
+          newAdmin.save();
+
+          res.redirect('/login')
+      } )
+  })
+})
+
+
       
      
   
