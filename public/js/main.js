@@ -4,19 +4,18 @@ const todoItem = document.querySelectorAll("span.not + span.done");
 // select the repeat button after the todo item
 const todoComplete = document.querySelectorAll("span.completed + span.repeat");
 
-// delete group confirmation
-const deleteGroupHandler = document.querySelector("#delete-group");
-deleteGroupHandler.addEventListener("click", function (event) {
-  event.preventDefault();
-  const confirmed = confirm(this.getAttribute("data-confirm"));
-  const groupId = this.getAttribute("data-groupId");
-  if (confirmed) {
-    console.log("Confirmed");
-    // console.log(groupId);
-    deleteGroup(groupId);
-  }
-});
-// }
+// // delete group confirmation
+// const deleteGroupHandler = document.querySelector("#delete-group");
+// deleteGroupHandler.addEventListener("click", function (event) {
+//   event.preventDefault();
+//   const confirmed = confirm(this.getAttribute("data-confirm"));
+//   const groupId = this.getAttribute("data-groupId");
+//   if (confirmed) {
+//     console.log("Confirmed");
+//     // console.log(groupId);
+//     deleteGroup(groupId);
+//   }
+// });
 
 const canShare = document.querySelectorAll("span.unshared");
 const shareBtn = document.querySelectorAll(".share");
